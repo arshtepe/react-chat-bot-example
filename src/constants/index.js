@@ -1,0 +1,2 @@
+export const RECEIVE_ANSWER = "RECEIVE_ANSWER";
+export const USER_MESSAGE = "USER_MESSAGE";
