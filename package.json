@@ -1,26 +1,18 @@
 {
-  "name": "react-redux-starter-kit",
-  "version": "3.0.1",
-  "description": "Get started with React, Redux, and React-Router!",
-  "main": "index.js",
+  "name": "react-chat-bot-example",
+  "version": "1.0.0",
+  "main": "dist/bundle.js",
   "scripts": {
-    "clean": "rimraf dist",
-    "compile": "node build/scripts/compile",
-    "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
-    "start": "cross-env NODE_ENV=development node build/scripts/start",
-    "test": "cross-env NODE_ENV=test karma start build/karma.config",
-    "test:watch": "npm test -- --watch",
-    "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "prepublish": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
+    "url": "https://github.com/arshtepe/react-chat-bot-example.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Artem Shtepenko",
   "license": "MIT",
   "dependencies": {
-    "@koa/cors": "^2.2.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "fetchival": "^0.3.3",
     "immutable": "^3.8.2",

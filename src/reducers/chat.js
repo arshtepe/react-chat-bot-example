@@ -1,38 +1,43 @@
-import {RECEIVE_ANSWER, USER_MESSAGE} from "../constants";
-import {BOT, USER} from "../constants/messageTypes";
-import {List} from "immutable";
+import {BOT_MESSAGE, RECEIVE_PRODUCTS, USER_MESSAGE} from "../constants";
+import {BOT, MULTILINE_MESSAGE, OFFER_MESSAGE, USER} from "../constants/messageTypes";
 
 const initialState = {
-    messages: List()
+    messages: []
 };
 export default (state = initialState, action) => {
 
     switch (action.type) {
-        case RECEIVE_ANSWER:
+
+        case BOT_MESSAGE:
             return {
                 ...state,
-                messages: state.messages.push({
-                    value: action.answer,
+                messages: [...state.messages, {
+                    value: action.message,
                     owner: BOT,
-                    type: "offerMessage"
-                })
+                    type: MULTILINE_MESSAGE
+                }]
+            };
+
+        case RECEIVE_PRODUCTS:
+            return {
+                ...state,
+                messages: [...state.messages, {
+                    value: action.products,
+                    owner: BOT,
+                    type: OFFER_MESSAGE
+                }]
             };
 
         case USER_MESSAGE:
             return {
                 ...state,
-                messages: state.messages.push({
+                messages: [...state.messages, {
                     value: action.message,
                     owner: USER,
-                    type: "plainMessage"
-                })
-            }
-        case SEARCH_PRODUCT:
-            return {
-                ...state,
-                chatState: action.state,
-                // selctedProduct: action.rp
-            }
+                    type: MULTILINE_MESSAGE
+                }]
+            };
+
     }
 
     return state;

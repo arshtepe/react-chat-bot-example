@@ -14,17 +14,12 @@
     width: 100%;
     line-height: 40px;
     font-weight: bold;
+    color: #ffffff;
 }
 
-:local(.header img) {
-    width: 30px;
-    border-radius: 15px;
-    height: 30px;
-    border: 1px white solid;
-    float: left;
-    margin: 4px 5px 0 5px;
+:local(.header span) {
+    margin-left: 10px;
 }
-
 :local(.chat-footer) {
     bottom: 0;
     left: 0;
@@ -143,19 +138,34 @@
     width: 30px;
     height: 30px;
     margin-top: 3px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 20px;
 }
 
 :local(.message-companion .user-icon) {
     float: left;
     margin-left: 7px;
+    background-color: #7B7CF4;
 }
+
+:local(.message-companion .user-icon:after) {
+    content: "B";
+}
+
+:local(.message-sender .user-icon:after) {
+    content: "U";
+}
+
 :local(.message-sender .user-icon) {
     float: right;
     margin-right: 7px;
+    background-color: #f9a610;
 }
 
-:local(.header-text-container) {
-
+:local(.offer-message-container) {
+    padding: 10px 0 0 10px;
 }
 :local(.messages-content) {
     background: #f2f2f2;

@@ -1,28 +1,19 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import chatStyle from "./Chat.css";
-import MessageList from "./components/MessageList";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import MessageList from "./messageList/MessageList";
+import Header from "./messageList/components/Header";
+import Footer from "./messageList/components/Footer";
 
-export default class extends Component {
-    static propTypes = {
-        // loadingLabel: PropTypes.string.isRequired,
-        // pageCount: PropTypes.number,
-        // renderItem: PropTypes.func.isRequired,
-        // items: PropTypes.array.isRequired,
-        // isFetching: PropTypes.bool.isRequired,
-        // onLoadMoreClick: PropTypes.func.isRequired,
-        // nextPageUrl: PropTypes.string
-    };
+export default class extends PureComponent {
 
     onMessageSend = value => this.props.onMessageSend(value);
 
     render() {
-        const {owner, messages} = this.props;
+        const {chatName, messages} = this.props;
 
         return (
             <div className={chatStyle.chat}>
-                <Header owner={owner}/>
+                <Header chatName={chatName}/>
                 <MessageList messages={messages}/>
                 <Footer onMessageSend={this.onMessageSend}/>
             </div>

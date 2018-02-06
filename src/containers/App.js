@@ -8,7 +8,7 @@ export default class App extends Component {
     render() {
         return (
             <div className={appStyle["main-container"]}>
-                <Chat/>
+                <Chat chatName="Chat Bot"/>
             </div>
         )
     }

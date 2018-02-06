@@ -1,0 +1,1 @@
+export const FIND_PRODUCT_URL = "/search/product";
