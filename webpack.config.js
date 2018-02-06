@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
@@ -33,7 +34,11 @@ module.exports = {
             "process.env": {
                 NODE_ENV: isProduction ? JSON.stringify("production") : JSON.stringify("development")
             }
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from:"./styles/base.css",
+            to: "base.css"
+        }])
     ],
     devServer: {
         contentBase: [path.join(__dirname, "."), path.join(__dirname, "dist"), path.join(__dirname, "styles")],
