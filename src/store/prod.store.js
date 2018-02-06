@@ -4,6 +4,5 @@ import rootReducer from '../reducers'
 
 module.exports = createStore(
     rootReducer,
-    preloadedState,
     compose(applyMiddleware(thunk))
 );
